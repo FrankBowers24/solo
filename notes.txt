@@ -1,0 +1,35 @@
+client.itemLookup({
+    idType: 'ISBN',
+    itemId: '1606600753',
+    relationshipType: '',   // required for RelatedItems
+    responseGroup: 'Similarities,Small'
+
+var prod = $scope.data[0].SimilarProducts[0].SimilarProduct[0]
+prod
+Object {ASIN: Array[1], Title: Array[1]}
+ASIN: Array[1]
+0: "0143124315"
+length: 1
+__proto__: Array[0]
+Title: Array[1]
+0: "A Portrait of the Artist as a Young Man (Penguin Drop Caps)"
+length: 1
+__proto__: Array[0]
+__proto__: Object
+
+==============================
+$scope.search_option
+"Lookup"
+=============================
+// Search
+data[0].ItemAttributes[0].Title, Author, Publisher
+data[0].MediumImage[0].URL[0]
+===========
+!!  itemId: request.param('q').replace(/,/g, '%2C') !!
+Multiple ASINs: 1608463923,0345806352,1942146000
+
+How to get details for multiple ASINs in one API call?
+http://docs.aws.amazon.com/AWSECommerceService/latest/DG/PerformingMultipleItemLookupsinOneRequest.html
+// get "The request signature we calculated does not match the signature you provided. Check your AWS Secret Access Key and signing method. Consult the service documentation for details."
+==============================================
+

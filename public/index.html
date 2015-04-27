@@ -1,0 +1,90 @@
+<html ng-app="AmazonApp">
+
+<head>
+  <title>Amazon Search</title>
+  <!--   <link href="search_client.css" type="text/css" rel="stylesheet" />-->
+  <link data-require="bootstrap-css@3.3.1" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <link href="css/main.css" type="text/css" rel="stylesheet" /> 
+  <script data-require="angular.js@*" data-semver="1.3.7" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.7/angular.js"></script>
+  <script>
+  (function() {
+
+    var app = angular.module("AmazonApp", []);
+
+    app.controller('AmazonController', function($scope, $http) {
+      $scope.searching = false;
+
+      var processSearchResults = function(data) {
+        var items = [];
+        //data[0].ItemAttributes[0].Title, Author, Publisher
+        //data[0].MediumImage[0].URL[0]
+        for (var i = 0; i < data.length; i++) {
+          var author = data[i].ItemAttributes[0].Author;
+          author = (author) ? author.join(', ') : author;
+          items.push({
+            MediumImageURL: data[i].MediumImage[0].URL[0],
+            ImageURL: data[i].SmallImage[0].URL[0],
+            Title: data[i].ItemAttributes[0].Title[0],
+            Author: author,
+            ASIN: data[i].ASIN[0]
+
+          });
+        }
+        return items;
+      }
+
+      var processLookupResults = function(data) {
+        return data[0].SimilarProducts[0].SimilarProduct;
+      }
+
+      $scope.showLargeImage = function(book) {
+        $scope.showBook = book;
+      }
+
+      $scope.search = function(asin) {
+        $scope.searching = true;
+        var url = asin ? 'http://localhost:3000/lookup?q='+ encodeURIComponent(asin)
+          : 'http://localhost:3000/search?q=' + encodeURIComponent($scope.search_terms)
+
+        $http.get(url)
+          .success(function(data) {
+            $scope.data = data;
+            $scope.books = processSearchResults(data);
+            $scope.searching = false;
+          })
+      }
+    });
+
+  }());
+  </script>
+</head>
+
+<body ng-controller="AmazonController">
+  <div id="search_box">
+    <h1>Amazon Search</h1>
+    <input ng-model="search_terms" name="search_terms" autofocus="autofocus" />
+    <button ng-click="search()" id="search_button" class="btn btn-primary">Search</button>
+    <!-- <select ng-model="search_option" name="search_option">
+      <option value="search">search</option>
+      <option value="lookup">lookup</option>
+    </select> -->
+  </div>
+  <div id="search_results">
+    <div ng-show="searching">
+      <img src="ajax_loader.gif">Searching Amazon...</div>
+    <!-- <div ng-include="'tweet_template.html'" </div> -->
+    <ul class="list-group">
+      <li class="list-group-item" ng-click="search(book.ASIN)" ng-repeat="book in books ">
+        <span class="wrapper">
+          <img ng-src="{{ book.ImageURL }}">
+          <div class="tooltip"><img ng-src="{{ book.MediumImageURL }}"></div>
+        </span>
+        <span class="title">{{book.Title}}</span>
+        <span class="Author">{{book.Author}}</span>
+        <span class="ASIN">{{book.ASIN}}</span>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
