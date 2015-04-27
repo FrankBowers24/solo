@@ -32,4 +32,49 @@ How to get details for multiple ASINs in one API call?
 http://docs.aws.amazon.com/AWSECommerceService/latest/DG/PerformingMultipleItemLookupsinOneRequest.html
 // get "The request signature we calculated does not match the signature you provided. Check your AWS Secret Access Key and signing method. Consult the service documentation for details."
 ==============================================
+http://ecx.images-amazon.com/images/I/41KnGAAFi2L._SL75_.jpg
+
+
+
+To get the current in-browser pixel size of a DOM element (in your case IMG elements) excluding the border and margin, you can use the clientWidth and clientHeight properties.
+
+var logoUrl = 'http://placehold.it/100x50&text=Logo';
+
+<img ng-src="http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL160_.jpg" src="http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL160_.jpg">
+-------------
+var imgUrl = "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL160_.jpg"
+
+//SVG Setup stuff
+var svg =  d3.select("body").append("svg")
+  .attr('id','mySVG')
+  .attr({
+      "width": '100%',
+      "height": '100%'
+  })
+
+var svg_img=  svg.append('image')
+  .attr('image-rendering','optimizeQuality')
+  .attr('x','0')
+  .attr('y','0');
+
+//Load image and get size.
+var img = new Image();
+img.src = imgUrl;
+img.onload = function() {
+ var width = this.width;
+ var height = this.height;
+
+ svg_img .attr('height', height)
+  .attr('width',width)
+  .attr('xlink:href', logoUrl)
+
+}
+
+************************************
+
+http://www.tippedjs.com/  Javascript tooltip
+
+http://www.opentip.org/  open source tooltip framework
+
+******************
 
