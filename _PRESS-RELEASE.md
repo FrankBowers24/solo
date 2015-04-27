@@ -18,27 +18,39 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Amazon Similar Products Visualization
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  A tool for finding new products to buy in an engaging and immersive way
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  ASPV will allow the user to run an Amazon product search and explore the relationships to similar products.  This is especially helpful for finding new books, movies, and music that is related to media that you already enjoy.
 
 ## Problem ##
   > Describe the problem your product solves.
+  The existing Amazon presentation of similar products is a carousel where you
+  see four products at a time.  ASPV allows you to see dozens of similar products at 
+  mulitple levels of indirection.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  ASPV presents the data in an animated visualization which provides a far greater level of engagement than a simple four-item carousel
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  ASPV has boosted sales and increased the amount of time customers spend on our site
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  All you have to do is enter a search string and click Search
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  ASPV opened my eyes to new books, dvds and music that I would never have heard about otherwise
+
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  Try ASPV see your favorite media in a new context.
