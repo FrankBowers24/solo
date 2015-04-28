@@ -8,7 +8,7 @@
    return svg;
  };
 
- var addImage = function (parent, imgUrl) {
+ var addImage = function (parent, imgUrl, callback) {
    var svg_img = parent.append('image')
      .attr('image-rendering', 'optimizeQuality')
      .attr('x', '100')
@@ -22,7 +22,8 @@
 
      svg_img.attr('height', height)
        .attr('width', width)
-       .attr('xlink:href', imgUrl)
+       .attr('xlink:href', imgUrl);
+     callback(height, width);
    }
  };
 
@@ -54,10 +55,19 @@
  $(document).ready(function () {
 
    var svg = createSVG();
-   addImage(svg, "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL160_.jpg");
+   addImage(svg,
+     "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL160_.jpg",
+     function (height, width) {
+       var img = svg.select("image");
+       svg.select("text")
+         .attr("y", +img.attr("y") + height)
+         .attr("x", +img.attr("x"));
+     });
    svg.append("text")
      .attr("x", 50)
      .attr("y", 50)
-     .text("The Death of Ivan Ilyich (Bantam Classics)");
-   wrap(svg.selectAll("text"), 100);
+     .text("San Francisco Then and Now (Then & Now Thunder Bay)");
+   wrap(svg.selectAll("text"), 150);
+
+
  });
