@@ -1,7 +1,7 @@
 //http://bl.ocks.org/mbostock/1062288
 
 var width = 1100,
-    height = 500,
+    height = 600,
     root;
 
 var force = d3.layout.force()
