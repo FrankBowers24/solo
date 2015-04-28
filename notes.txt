@@ -100,3 +100,7 @@ Amazon has completely removed support for accessing rating/review information fr
 answered Mar 26 '14 at 17:20   Struggler
 =============================
 
+4/28 14:31 TODO
+1.  Tooltip
+2.  Sticky force layout
+3.  Figure out Angular directives

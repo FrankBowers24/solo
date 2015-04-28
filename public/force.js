@@ -6,7 +6,8 @@ var width = 1100,
 
 var force = d3.layout.force()
     .size([width, height])
-    .charge(-6000)
+    .charge(-2000)
+    .linkDistance(150)
     .on("tick", tick);
 
 var svg = d3.select("#visualization").append("svg")
@@ -74,8 +75,8 @@ function update() {
       })
       .attr("height", "160")
       .attr("width", "138")
-      .attr("x", function(d) { return d.x - 75/2; })
-      .attr("y", function(d) { return d.y - 65/2; })  // TODO: Adjust for actual dims
+      .attr("x", function(d) { return d.x - 160/2; })
+      .attr("y", function(d) { return d.y - 138/2; })  // TODO: Adjust for actual dims
       // .attr("cx", function(d) { return d.x; })
       // .attr("cy", function(d) { return d.y; })
       // .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
@@ -94,8 +95,8 @@ function tick() {
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-  node.attr("x", function(d) { return d.x - 75/2; })  // TODO: Adjust for actual dims
-      .attr("y", function(d) { return d.y - 65/2; });
+  node.attr("x", function(d) { return d.x - 160/2; })  // TODO: Adjust for actual dims
+      .attr("y", function(d) { return d.y - 138/2; });
 }
 
 // Color leaf nodes orange, and packages white or blue.
