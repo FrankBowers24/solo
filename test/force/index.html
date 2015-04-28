@@ -71,10 +71,6 @@ function update() {
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-  //Frank Bowers
-  nodes.map(function(d) {
-    return d.__data__;
-  });
 
   // Update the nodes…
   node = node.data(nodes, function(d) { return d.id; }).style("fill", color);
@@ -88,7 +84,7 @@ function update() {
       .attr("class", "node")
       // .attr("xlink:href", "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL75_.jpg")
       .attr("xlink:href", function(d) {
-      	return d.ImageURL;
+        return d.ImageURL;
       })
       .attr("height", "65")
       .attr("width", "75")
@@ -101,6 +97,20 @@ function update() {
       .on("click", click)
       .on("dblclick", dblClick)
       .call(force.drag);
+
+  //Frank Bowers
+  nodes.map(function(d) {
+    return d.__data__;
+  });
+  var nodeArray = d3.selectAll(".node");
+  for (var i = 0; i < nodeArray.length; i++) {
+    console.log(nodeArray[i][0].__data__);
+
+
+
+     //nodeArray[0][0].__data__
+  }
+
 }
 
 function tick() {

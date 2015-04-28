@@ -1,12 +1,12 @@
 //http://bl.ocks.org/mbostock/1062288
 
 var width = 1000,
-    height = 800,
+    height = 600,
     root;
 
 var force = d3.layout.force()
     .size([width, height])
-    .charge(-3000)
+    .charge(-6000)
     .on("tick", tick);
 
 var svg = d3.select("#visualization").append("svg")
@@ -70,10 +70,10 @@ function update() {
       .attr("class", "node")
       // .attr("xlink:href", "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL75_.jpg")
       .attr("xlink:href", function(d) {
-      	return d.ImageURL;
+      	return d.MediumImageURL;
       })
-      .attr("height", "65")
-      .attr("width", "75")
+      .attr("height", "160")
+      .attr("width", "138")
       .attr("x", function(d) { return d.x - 75/2; })
       .attr("y", function(d) { return d.y - 65/2; })  // TODO: Adjust for actual dims
       // .attr("cx", function(d) { return d.x; })
