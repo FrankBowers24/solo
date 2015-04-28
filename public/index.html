@@ -44,12 +44,20 @@
         $scope.showBook = book;
       }
 
-      $scope.showVisualization = function() {
+      $scope.showVisualization = function(book) {
+        var data = book
         $scope.searchMode = false;
+        this.search(book.ASIN, true, function() {
+          book.children = $scope.books;
+          console.log(book.children.length);
+        })
+
       }
 
-      $scope.search = function(asin) {
-        $scope.searchMode = true;
+      $scope.search = function(asin, noModeChange, callback) {
+        if (!noModeChange) {
+          $scope.searchMode = true;
+        }
         $scope.searching = true;
         var url = asin ? 'http://localhost:3000/lookup?q='+ encodeURIComponent(asin)
           : 'http://localhost:3000/search?q=' + encodeURIComponent($scope.search_terms)
@@ -59,6 +67,7 @@
             $scope.data = data;
             $scope.books = processSearchResults(data);
             $scope.searching = false;
+            if (callback) callback();
           })
       }
     });
@@ -82,7 +91,7 @@
       <img src="ajax_loader.gif">Searching Amazon...</div>
     <!-- <div ng-include="'tweet_template.html'" </div> -->
     <ul class="list-group">
-      <li class="list-group-item" ng-click="showVisualization(ASIN)" ng-repeat="book in books ">
+      <li class="list-group-item" ng-click="showVisualization(book)" ng-repeat="book in books ">
         <span class="wrapper">
           <img ng-src="{{ book.ImageURL }}">
           <div class="tooltip"><img ng-src="{{ book.MediumImageURL }}"></div>
