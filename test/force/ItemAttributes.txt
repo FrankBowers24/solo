@@ -1,0 +1,190 @@
+JSON.stringify(data[0].ItemAttributes[0], null, '\t')
+
+"{
+	"Author": [
+		"Lonely Planet",
+		"Alison Bing",
+		"Sara Benson",
+		"John A Vlahides"
+	],
+	"Binding": [
+		"Paperback"
+	],
+	"EAN": [
+		"9781742207346"
+	],
+	"EANList": [
+		{
+			"EANListElement": [
+				"9781742207346"
+			]
+		}
+	],
+	"Edition": [
+		"9"
+	],
+	"ISBN": [
+		"1742207340"
+	],
+	"IsEligibleForTradeIn": [
+		"1"
+	],
+	"ItemDimensions": [
+		{
+			"Height": [
+				{
+					"_": "776",
+					"$": {
+						"Units": "hundredths-inches"
+					}
+				}
+			],
+			"Length": [
+				{
+					"_": "504",
+					"$": {
+						"Units": "hundredths-inches"
+					}
+				}
+			],
+			"Weight": [
+				{
+					"_": "85",
+					"$": {
+						"Units": "hundredths-pounds"
+					}
+				}
+			],
+			"Width": [
+				{
+					"_": "75",
+					"$": {
+						"Units": "hundredths-inches"
+					}
+				}
+			]
+		}
+	],
+	"Label": [
+		"Lonely Planet"
+	],
+	"Languages": [
+		{
+			"Language": [
+				{
+					"Name": [
+						"English"
+					],
+					"Type": [
+						"Published"
+					]
+				},
+				{
+					"Name": [
+						"English"
+					],
+					"Type": [
+						"Original Language"
+					]
+				},
+				{
+					"Name": [
+						"French"
+					],
+					"Type": [
+						"Unknown"
+					]
+				}
+			]
+		}
+	],
+	"ListPrice": [
+		{
+			"Amount": [
+				"2199"
+			],
+			"CurrencyCode": [
+				"USD"
+			],
+			"FormattedPrice": [
+				"$21.99"
+			]
+		}
+	],
+	"Manufacturer": [
+		"Lonely Planet"
+	],
+	"NumberOfItems": [
+		"1"
+	],
+	"NumberOfPages": [
+		"344"
+	],
+	"PackageDimensions": [
+		{
+			"Height": [
+				{
+					"_": "87",
+					"$": {
+						"Units": "hundredths-inches"
+					}
+				}
+			],
+			"Length": [
+				{
+					"_": "772",
+					"$": {
+						"Units": "hundredths-inches"
+					}
+				}
+			],
+			"Weight": [
+				{
+					"_": "84",
+					"$": {
+						"Units": "hundredths-pounds"
+					}
+				}
+			],
+			"Width": [
+				{
+					"_": "512",
+					"$": {
+						"Units": "hundredths-inches"
+					}
+				}
+			]
+		}
+	],
+	"ProductGroup": [
+		"Book"
+	],
+	"ProductTypeName": [
+		"ABIS_BOOK"
+	],
+	"PublicationDate": [
+		"2014-03-01"
+	],
+	"Publisher": [
+		"Lonely Planet"
+	],
+	"Studio": [
+		"Lonely Planet"
+	],
+	"Title": [
+		"Lonely Planet San Francisco (Travel Guide)"
+	],
+	"TradeInValue": [
+		{
+			"Amount": [
+				"458"
+			],
+			"CurrencyCode": [
+				"USD"
+			],
+			"FormattedPrice": [
+				"$4.58"
+			]
+		}
+	]
+}"

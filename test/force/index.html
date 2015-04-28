@@ -84,7 +84,10 @@ function update() {
   // Enter any new nodes.
   node.enter().append("image")
       .attr("class", "node")
-      .attr("xlink:href", "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL75_.jpg")
+      // .attr("xlink:href", "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL75_.jpg")
+      .attr("xlink:href", function(d) {
+      	return d.ImageURL;
+      })
       .attr("height", "65")
       .attr("width", "75")
       .attr("x", function(d) { return d.x - 75/2; })
@@ -94,6 +97,7 @@ function update() {
       // .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
       // .style("fill", color)
       .on("click", click)
+      .on("dblclick", dblClick)
       .call(force.drag);
 }
 
@@ -110,6 +114,19 @@ function tick() {
 // Color leaf nodes orange, and packages white or blue.
 function color(d) {
   return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+}
+
+// add children on dblClick
+function dblClick(d) {
+  if (!d3.event.defaultPrevented) {
+  	if (!d.children) {
+  		d3.json("amazon2.json", function(json) {
+  		  d.children = json;
+  		  update();
+  		});
+
+  	}
+  }
 }
 
 // Toggle children on click.

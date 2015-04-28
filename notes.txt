@@ -78,3 +78,10 @@ http://www.opentip.org/  open source tooltip framework
 
 ******************
 
+4/27: 9:45 PM:  have amazon data for force graph
+TODO:
+    1.  Use small image URLs from amazon data
+    2.  Set correct dims for SVG images by creating img elements and getting dims
+    3.  Set dims for image on bound data, d
+    4.  Correctly adjust the SVG image x and y on tick using width and height on d
+
