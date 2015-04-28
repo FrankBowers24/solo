@@ -63,7 +63,7 @@
          .attr("y", +img.attr("y") + height)
          .attr("x", +img.attr("x"));
      });
-   svg.append("text")
+   svg.append("g").append("text")
      .attr("x", 50)
      .attr("y", 50)
      .text("San Francisco Then and Now (Then & Now Thunder Bay)");
