@@ -118,12 +118,28 @@ function color(d) {
   return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
 }
 
+
+function ensureUniqueness(nodes) {
+	var nodeMap = {};
+	flatten(root).forEach(function(n) {
+		nodeMap[n.ASIN] = true;
+	});
+	nodes.forEach(function(n, index) {
+		if (nodeMap[n.ASIN]) {
+			nodes[index] = null;
+		}
+	});
+	return nodes.filter(function(n) {
+		return n;
+	});
+}
+
 // add children on dblClick
 function dblClick(d) {
   if (!d3.event.defaultPrevented) {
   	if (!d.children) {
   		d3.json("amazon2.json", function(json) {
-  		  d.children = json;
+  		  d.children = ensureUniqueness(json);
   		  update();
   		});
 
