@@ -1,7 +1,7 @@
 //http://bl.ocks.org/mbostock/1062288
 
-var width = 1000,
-    height = 600,
+var width = 1100,
+    height = 500,
     root;
 
 var force = d3.layout.force()
@@ -109,14 +109,13 @@ function setRoot(newRoot) {
 }
 
 function setChildrenOnActiveNode(children) {
-  lastClickedNode.children = children;
+  lastClickedNode.children = ensureUniqueness(children);
   update();
 }
 
-
 function ensureUniqueness(nodes) {
 	var nodeMap = {};
-	flatten(root).forEach(function(n) {
+	flattenAll(root).forEach(function(n) {
 		nodeMap[n.ASIN] = true;
 	});
 	nodes.forEach(function(n, index) {
@@ -161,6 +160,21 @@ function click(d) {
     }
     update();
   }
+}
+
+// Returns all nodes including hidden ones
+function flattenAll(root) {
+  var nodes = [];
+
+  function recurse(node) {
+    if (node.children) node.children.forEach(recurse);
+    if (node._children) node._children.forEach(recurse);
+    if (!node.id) node.id = ++nodeIndex;
+    nodes.push(node);
+  }
+
+  recurse(root);
+  return nodes;
 }
 
 // Returns a list of all nodes under the root.
