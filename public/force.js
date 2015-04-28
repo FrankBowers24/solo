@@ -1,22 +1,26 @@
 //http://bl.ocks.org/mbostock/1062288
 
-var width = 960,
-    height = 500,
+var width = 1000,
+    height = 800,
     root;
 
 var force = d3.layout.force()
     .size([width, height])
-    .charge(-5000)
+    .charge(-3000)
     .on("tick", tick);
 
 var svg = d3.select("#visualization").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("xmlns", "http://www.w3.org/2000/svg")
+    .attr("ng-dblclick", "findSimilar(this)");
 
 var link = svg.selectAll(".link"),
     node = svg.selectAll(".node");
 
 var nodeIndex = 0;
+
+var lastClickedNode;
 
 // d3.json("amazon.json", function(json) {
 //   root = json;
@@ -76,10 +80,11 @@ function update() {
       // .attr("cy", function(d) { return d.y; })
       // .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
       // .style("fill", color)
-      //.on("click", click)
-      // .on("dblclick", dblClick)
-      .attr("ng-click", "findSimilar()")
-      .attr("ng-dblclick", "findSimilar()")
+      .on("click", click)
+      //.on("dblclick", dblClick)
+      // .attr("ng-click", "findSimilar()")
+      // .attr("ng-dblclick", "findSimilar()")
+      .attr("ng-dblclick", "findSimilar(this)")
       .call(force.drag);
 }
 
@@ -103,6 +108,11 @@ function setRoot(newRoot) {
   update();
 }
 
+function setChildrenOnActiveNode(children) {
+  lastClickedNode.children = children;
+  update();
+}
+
 
 function ensureUniqueness(nodes) {
 	var nodeMap = {};
@@ -120,7 +130,7 @@ function ensureUniqueness(nodes) {
 }
 
 // add children on dblClick
-function dblClick(d) {
+function OLD_dblClick(d) {
   if (!d3.event.defaultPrevented) {
   	if (!d.children) {
   		d3.json("amazon2.json", function(json) {
@@ -132,8 +142,15 @@ function dblClick(d) {
   }
 }
 
+function dblClick(d) {
+  var test = $("body");
+  var body = document.getElementsByTagName("body");
+  console.log(body);
+}
+
 // Toggle children on click.
 function click(d) {
+  lastClickedNode = d;
   if (!d3.event.defaultPrevented) {
     if (d.children) {
       d._children = d.children;
