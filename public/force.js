@@ -116,10 +116,10 @@ function setChildrenOnActiveNode(children) {
 function ensureUniqueness(nodes) {
 	var nodeMap = {};
 	flattenAll(root).forEach(function(n) {
-		nodeMap[n.ASIN] = true;
+		nodeMap[n.Title] = true;
 	});
 	nodes.forEach(function(n, index) {
-		if (nodeMap[n.ASIN]) {
+		if (nodeMap[n.Title]) {
 			nodes[index] = null;
 		}
 	});
