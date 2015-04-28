@@ -38,6 +38,8 @@ var svg = d3.select("body").append("svg")
 var link = svg.selectAll(".link"),
     node = svg.selectAll(".node");
 
+var nodeIndex = 0;
+
 d3.json("amazon.json", function(json) {
   root = json;
   update();
@@ -145,11 +147,11 @@ function click(d) {
 
 // Returns a list of all nodes under the root.
 function flatten(root) {
-  var nodes = [], i = 0;
+  var nodes = [];
 
   function recurse(node) {
     if (node.children) node.children.forEach(recurse);
-    if (!node.id) node.id = ++i;
+    if (!node.id) node.id = ++nodeIndex;
     nodes.push(node);
   }
 

@@ -80,8 +80,15 @@ http://www.opentip.org/  open source tooltip framework
 
 4/27: 9:45 PM:  have amazon data for force graph
 TODO:
+A.  Load current data and set images
     1.  Use small image URLs from amazon data
     2.  Set correct dims for SVG images by creating img elements and getting dims
     3.  Set dims for image on bound data, d
     4.  Correctly adjust the SVG image x and y on tick using width and height on d
+B.  Add new function to add another 5 items as children of an existing item
 
+==========================
+
+DblClick => add child nodes to model, but view does not have new links or nodes
+   After DblClick still no links after enter insert
+   link has length 10, but only 5 elements===  !! nodes do not have unique ids!!!
