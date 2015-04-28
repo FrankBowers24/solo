@@ -1,0 +1,37 @@
+[
+	{
+		"MediumImageURL": "http://ecx.images-amazon.com/images/I/51uvtEUJjmL._SL160_.jpg",
+		"ImageURL": "http://ecx.images-amazon.com/images/I/51uvtEUJjmL._SL75_.jpg",
+		"Title": "Season of the Witch: Enchantment, Terror, and Deliverance in the City of Love",
+		"Author": "David Talbot",
+		"ASIN": "1439108242"
+	},
+	{
+		"MediumImageURL": "http://ecx.images-amazon.com/images/I/419J6zF%2BCvL._SL160_.jpg",
+		"ImageURL": "http://ecx.images-amazon.com/images/I/419J6zF%2BCvL._SL75_.jpg",
+		"Title": "Infinite City: A San Francisco Atlas",
+		"Author": "Rebecca Solnit",
+		"ASIN": "0520262506"
+	},
+	{
+		"MediumImageURL": "http://ecx.images-amazon.com/images/I/511i2EPJEKL._SL160_.jpg",
+		"ImageURL": "http://ecx.images-amazon.com/images/I/511i2EPJEKL._SL75_.jpg",
+		"Title": "Stairway Walks in San Francisco: The Joy of Urban Exploring",
+		"Author": "Adah Bakalinsky, Mary Burk",
+		"ASIN": "0899977499"
+	},
+	{
+		"MediumImageURL": "http://ecx.images-amazon.com/images/I/51TZtEddBXL._SL160_.jpg",
+		"ImageURL": "http://ecx.images-amazon.com/images/I/51TZtEddBXL._SL75_.jpg",
+		"Title": "Lost San Francisco",
+		"Author": "Dennis Evanovsky, Eric J. Kos",
+		"ASIN": "1862059349"
+	},
+	{
+		"MediumImageURL": "http://ecx.images-amazon.com/images/I/51ksahLKlZL._SL160_.jpg",
+		"ImageURL": "http://ecx.images-amazon.com/images/I/51ksahLKlZL._SL75_.jpg",
+		"Title": "Meanwhile in San Francisco: The City in its Own Words",
+		"Author": "Wendy MacNaughton",
+		"ASIN": "1452113890"
+	}
+]
