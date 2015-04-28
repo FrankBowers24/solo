@@ -50,8 +50,13 @@
         this.search(book.ASIN, true, function() {
           book.children = $scope.books;
           console.log(book.children.length);
+          setRoot(book);
         })
 
+      }
+
+      $scope.findSimilar = function(param) {
+        console.log(param);
       }
 
       $scope.search = function(asin, noModeChange, callback) {

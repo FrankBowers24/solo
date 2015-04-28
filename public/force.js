@@ -18,10 +18,10 @@ var link = svg.selectAll(".link"),
 
 var nodeIndex = 0;
 
-d3.json("amazon.json", function(json) {
-  root = json;
-  update();
-});
+// d3.json("amazon.json", function(json) {
+//   root = json;
+//   update();
+// });
 
 function update() {
   var nodes = flatten(root),
@@ -71,13 +71,15 @@ function update() {
       .attr("height", "65")
       .attr("width", "75")
       .attr("x", function(d) { return d.x - 75/2; })
-      .attr("y", function(d) { return d.y - 65/2; })
+      .attr("y", function(d) { return d.y - 65/2; })  // TODO: Adjust for actual dims
       // .attr("cx", function(d) { return d.x; })
       // .attr("cy", function(d) { return d.y; })
       // .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
       // .style("fill", color)
-      .on("click", click)
-      .on("dblclick", dblClick)
+      //.on("click", click)
+      // .on("dblclick", dblClick)
+      .attr("ng-click", "findSimilar()")
+      .attr("ng-dblclick", "findSimilar()")
       .call(force.drag);
 }
 
@@ -87,13 +89,18 @@ function tick() {
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-  node.attr("x", function(d) { return d.x - 75/2; })
+  node.attr("x", function(d) { return d.x - 75/2; })  // TODO: Adjust for actual dims
       .attr("y", function(d) { return d.y - 65/2; });
 }
 
 // Color leaf nodes orange, and packages white or blue.
 function color(d) {
   return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+}
+
+function setRoot(newRoot) {
+  root = newRoot;
+  update();
 }
 
 

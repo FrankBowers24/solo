@@ -92,3 +92,10 @@ B.  Add new function to add another 5 items as children of an existing item
 DblClick => add child nodes to model, but view does not have new links or nodes
    After DblClick still no links after enter insert
    link has length 10, but only 5 elements===  !! nodes do not have unique ids!!!
+
+==============================
+
+Amazon has completely removed support for accessing rating/review information from their API. The docs mention a Response Element in the form of customer rating, but that doesn't work either.
+
+answered Mar 26 '14 at 17:20   Struggler
+=============================
