@@ -104,3 +104,8 @@ answered Mar 26 '14 at 17:20   Struggler
 1.  Tooltip
 2.  Sticky force layout
 3.  Figure out Angular directives
+
+====
+if SVG is under regular HTML the user interaction is intecepted by SVG behaving as if the SVG is over the regular HTML
+
+=========================
