@@ -102,9 +102,9 @@ function update() {
       .attr("class", "node")
       // .attr("xlink:href", "http://ecx.images-amazon.com/images/I/5165Cn6GA2L._SL75_.jpg")
       .attr("xlink:href", function(d) {
-      	return d.MediumImageURL;
+      	return d.LargeImageURL;
       })
-      .attr("height", "160")
+      .attr("height", "125")
       .attr("width", "138")
       .attr("x", function(d) { return d.x - 160/2; })
       .attr("y", function(d) { return d.y - 138/2; })  // TODO: Adjust for actual dims
